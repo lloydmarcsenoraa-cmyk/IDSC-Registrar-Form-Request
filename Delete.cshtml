@@ -1,0 +1,16 @@
+﻿@model IDSCRegistrar.Models.RegistrarRequest
+
+<h2>Delete Request</h2>
+
+<p>Are you sure you want to delete this request?</p>
+
+<div>
+    <h4>@Model.StudentName - @Model.StudentID</h4>
+    <p>@Model.RequestType | @Model.Description | @Model.RequestDate.ToShortDateString()</p>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "RegistrarRequests", new { id = Model.Id }, FormMethod.Post))
+{
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/RegistrarRequests" class="btn btn-secondary">Cancel</a>
+}
